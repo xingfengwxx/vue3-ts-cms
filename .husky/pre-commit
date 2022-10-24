@@ -1,0 +1,13 @@
+###
+ # @Author: 王星星
+ # @Email: 1099420259@qq.com
+ # @Date: 2022-10-24 15:52:24
+ # @LastEditors: 王星星
+ # @LastEditTime: 2022-10-24 16:00:26
+ # @FilePath: \vue3-ts-cms\.husky\pre-commit
+ # @Description:
+###
+#!/bin/sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npm run lint
