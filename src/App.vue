@@ -3,34 +3,33 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-24 15:41:23
  * @LastEditors: 王星星
- * @LastEditTime: 2022-10-24 16:29:36
+ * @LastEditTime: 2022-10-25 10:57:13
  * @FilePath: \vue3-ts-cms\src\App.vue
  * @Description:
 -->
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="app">
+    <router-link to="/login">登录</router-link>
+    <router-link to="/main">首页</router-link>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
 
 export default defineComponent({
   name: 'App',
-  components: {
-    HelloWorld
+  props: {
+    name: {
+      type: String
+    }
   }
 })
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  height: 100%;
 }
 </style>
