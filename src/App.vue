@@ -3,12 +3,13 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-24 15:41:23
  * @LastEditors: 王星星
- * @LastEditTime: 2022-10-25 10:57:13
+ * @LastEditTime: 2022-10-25 11:36:50
  * @FilePath: \vue3-ts-cms\src\App.vue
  * @Description:
 -->
 <template>
   <div class="app">
+    <h2>{{ $store.state.name }}</h2>
     <router-link to="/login">登录</router-link>
     <router-link to="/main">首页</router-link>
     <router-view></router-view>
