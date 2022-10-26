@@ -3,24 +3,18 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 10:44:12
  * @LastEditors: 王星星
- * @LastEditTime: 2022-10-26 09:50:53
+ * @LastEditTime: 2022-10-25 11:15:46
  * @FilePath: \vue3-ts-cms\src\views\login\login.vue
  * @Description:
 -->
 <template>
-  <div class="login">
-    <login-panel />
-  </div>
+  <div class="login">登录页面</div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import LoginPanel from './cpns/login-panel.vue'
 
 export default defineComponent({
-  components: {
-    LoginPanel
-  },
   setup() {
     return {}
   }

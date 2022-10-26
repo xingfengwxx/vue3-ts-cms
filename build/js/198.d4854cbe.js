@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkvue3_ts_cms"]=self["webpackChunkvue3_ts_cms"]||[]).push([[198],{1198:function(n,e,s){s.r(e),s.d(e,{default:function(){return f}});var t=s(6252);const u={class:"main"};function r(n,e,s,r,c,a){return(0,t.wg)(),(0,t.iD)("div",u,"主页")}var c=(0,t.aZ)({setup(){return{}}}),a=s(3744);const i=(0,a.Z)(c,[["render",r]]);var f=i}}]);
-//# sourceMappingURL=198.d4854cbe.js.map
