@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 11:31:14
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-10 11:08:36
+ * @LastEditTime: 2022-11-10 13:54:05
  * @FilePath: \vue3-ts-cms\src\store\index.ts
  * @Description:
  */
@@ -14,7 +14,7 @@ import login from './login/login'
 
 import { IRootState } from './types'
 
-const store = createStore({
+const store = createStore<IRootState>({
   state: () => {
     return {
       name: 'wxx',
