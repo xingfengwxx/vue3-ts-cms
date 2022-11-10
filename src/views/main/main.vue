@@ -3,12 +3,12 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 10:44:12
  * @LastEditors: 王星星
- * @LastEditTime: 2022-10-25 11:01:10
+ * @LastEditTime: 2022-11-10 10:43:13
  * @FilePath: \vue3-ts-cms\src\views\main\main.vue
  * @Description:
 -->
 <template>
-  <div class="main">主页</div>
+  <div class="main">Main Page</div>
 </template>
 
 <script lang="ts">

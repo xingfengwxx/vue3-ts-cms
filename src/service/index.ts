@@ -3,12 +3,14 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 14:17:17
  * @LastEditors: 王星星
- * @LastEditTime: 2022-10-25 15:50:37
+ * @LastEditTime: 2022-11-10 11:22:36
  * @FilePath: \vue3-ts-cms\src\service\index.ts
  * @Description: service统一出口
  */
 import HYRequest from './request'
 import { BASE_URL, TIME_OUT } from './request/config'
+
+import localCache from '@/utils/cache'
 
 const hyRequest = new HYRequest({
   baseURL: BASE_URL,
@@ -16,7 +18,7 @@ const hyRequest = new HYRequest({
   interceptors: {
     requestInterceptor: (config) => {
       // 携带token的拦截
-      const token = ''
+      const token = localCache.getCache('token')
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }

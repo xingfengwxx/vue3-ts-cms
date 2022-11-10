@@ -1,18 +1,27 @@
+<!--
+ * @Author: 王星星
+ * @Email: 1099420259@qq.com
+ * @Date: 2022-10-26 10:17:58
+ * @LastEditors: 王星星
+ * @LastEditTime: 2022-11-10 10:53:35
+ * @FilePath: \vue3-ts-cms\src\views\login\cpns\login-panel.vue
+ * @Description:
+-->
 <template>
   <div class="login-panel">
     <h1 class="title">后台管理系统</h1>
-    <el-tabs type="border-card" stretch>
-      <el-tab-pane>
+    <el-tabs type="border-card" stretch v-model="currentTab">
+      <el-tab-pane name="account">
         <template #label>
           <span><i class="el-icon-user-solid"></i> 账号登录</span>
         </template>
         <login-account ref="accountRef" />
       </el-tab-pane>
-      <el-tab-pane>
+      <el-tab-pane name="phone">
         <template #label>
           <span><i class="el-icon-mobile-phone"></i> 手机登录</span>
         </template>
-        <login-phone />
+        <login-phone ref="phoneRef" />
       </el-tab-pane>
     </el-tabs>
 
@@ -38,17 +47,27 @@ export default defineComponent({
     LoginPhone
   },
   setup() {
+    // 1.定义属性
     const isKeepPassword = ref(true)
     const accountRef = ref<InstanceType<typeof LoginAccount>>()
+    const phoneRef = ref<InstanceType<typeof LoginPhone>>()
+    const currentTab = ref('account')
 
+    // 2.定义方法
     const handleLoginClick = () => {
-      accountRef.value?.loginAction()
+      if (currentTab.value === 'account') {
+        accountRef.value?.loginAction(isKeepPassword.value)
+      } else {
+        console.log('phoneRef调用loginAction')
+      }
     }
 
     return {
       isKeepPassword,
-      handleLoginClick,
-      accountRef
+      accountRef,
+      phoneRef,
+      currentTab,
+      handleLoginClick
     }
   }
 })
