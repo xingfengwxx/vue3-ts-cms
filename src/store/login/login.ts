@@ -1,3 +1,12 @@
+/*
+ * @Author: 王星星
+ * @Email: 1099420259@qq.com
+ * @Date: 2022-11-10 11:09:56
+ * @LastEditors: 王星星
+ * @LastEditTime: 2022-11-11 11:36:11
+ * @FilePath: \vue3-ts-cms\src\store\login\login.ts
+ * @Description:
+ */
 import { Module } from 'vuex'
 
 import {
@@ -37,6 +46,7 @@ const loginModule: Module<ILoginState, IRootState> = {
     async accountLoginAction({ commit }, payload: IAccount) {
       // 1.实现登录逻辑
       const loginResult = await accountLoginRequest(payload)
+      console.log('wxx', loginResult)
       const { id, token } = loginResult.data
       commit('changeToken', token)
       localCache.setCache('token', token)
