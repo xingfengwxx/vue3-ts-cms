@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-10 11:09:56
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-11 11:36:11
+ * @LastEditTime: 2022-11-17 10:06:39
  * @FilePath: \vue3-ts-cms\src\store\login\login.ts
  * @Description:
  */
@@ -15,9 +15,10 @@ import {
   requestUserMenusByRoleId
 } from '@/service/login/login'
 import localCache from '@/utils/cache'
+import { mapMenusToRoutes } from '@/utils/map-menus'
 import router from '@/router'
 
-import { IAccount } from '@/service/login/type'
+import { IAccount } from '@/service/login/types'
 import { ILoginState } from './types'
 import { IRootState } from '../types'
 
@@ -40,13 +41,22 @@ const loginModule: Module<ILoginState, IRootState> = {
     },
     changeUserMenus(state, userMenus: any) {
       state.userMenus = userMenus
+
+      console.log('注册动态路由')
+
+      // userMenus => routes
+      const routes = mapMenusToRoutes(userMenus)
+
+      // 将routes => router.main.children
+      routes.forEach((route) => {
+        router.addRoute('main', route)
+      })
     }
   },
   actions: {
     async accountLoginAction({ commit }, payload: IAccount) {
       // 1.实现登录逻辑
       const loginResult = await accountLoginRequest(payload)
-      console.log('wxx', loginResult)
       const { id, token } = loginResult.data
       commit('changeToken', token)
       localCache.setCache('token', token)

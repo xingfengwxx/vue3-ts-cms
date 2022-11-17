@@ -3,13 +3,14 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-10 11:10:12
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-10 11:28:50
+ * @LastEditTime: 2022-11-17 09:34:22
  * @FilePath: \vue3-ts-cms\src\service\login\login.ts
  * @Description:
  */
 import hyRequest from '../index'
 
-import { IAccount, IDataType, ILoginResult } from './type'
+import { IAccount, ILoginResult } from './types'
+import { IDataType } from '../types'
 
 enum LoginAPI {
   AccountLogin = '/login',
