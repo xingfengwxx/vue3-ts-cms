@@ -3,8 +3,8 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-15 11:28:21
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-15 11:41:31
- * @FilePath: \hm_cms_project\src\components\nav-header\src\user-info.vue
+ * @LastEditTime: 2022-11-17 14:36:46
+ * @FilePath: \vue3-ts-cms\src\components\nav-header\src\user-info.vue
  * @Description:
 -->
 <template>
@@ -35,7 +35,7 @@ import { useStore } from '@/store'
 export default defineComponent({
   setup() {
     const store = useStore()
-    const name = computed(() => store.state.login.userInfo.account)
+    const name = computed(() => store.state.login.userInfo.name)
 
     return {
       name
