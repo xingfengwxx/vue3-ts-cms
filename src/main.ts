@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-24 15:41:23
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-17 09:18:48
+ * @LastEditTime: 2022-11-18 17:01:04
  * @FilePath: \vue3-ts-cms\src\main.ts
  * @Description:
  */
@@ -28,9 +28,10 @@ const app = createApp(App)
 app.use(globalRegister)
 //全局注册
 // app.use(ElementPlus)
-app.use(router)
 setupStore()
 app.use(store)
+// path: /user => user
+app.use(router)
 
 app.mount('#app')
 

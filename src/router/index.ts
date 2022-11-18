@@ -3,15 +3,17 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 10:37:51
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-18 15:31:31
+ * @LastEditTime: 2022-11-18 16:56:20
  * @FilePath: \vue3-ts-cms\src\router\index.ts
  * @Description:
  */
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
+import type { RouteRecordRaw } from 'vue-router'
+
 import localCache from '@/utils/cache'
 import { firstMenu } from '@/utils/map-menus'
 
-const routes: Array<RouteRecordRaw> = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/main'
@@ -22,10 +24,6 @@ const routes: Array<RouteRecordRaw> = [
     component: () => {
       return import('@/views/login/login.vue')
     }
-  },
-  {
-    path: '/main',
-    component: () => import('@/views/main/main.vue')
   },
   {
     path: '/main',
