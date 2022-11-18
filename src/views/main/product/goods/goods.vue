@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-17 09:32:13
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-18 16:13:12
+ * @LastEditTime: 2022-11-18 16:36:20
  * @FilePath: \vue3-ts-cms\src\views\main\product\goods\goods.vue
  * @Description:
 -->
@@ -15,6 +15,7 @@
           style="width: 60px; height: 60px"
           :src="scope.row.imgUrl"
           :preview-src-list="[scope.row.imgUrl]"
+          preview-teleported
         ></el-image>
       </template>
       <template #oldPrice="scope">{{ '¥' + scope.row.oldPrice }}</template>
