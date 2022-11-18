@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-15 11:02:50
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-17 10:36:04
+ * @LastEditTime: 2022-11-18 13:46:28
  * @FilePath: \vue3-ts-cms\src\utils\map-menus.ts
  * @Description:
  */
@@ -70,6 +70,23 @@ export function pathMapToMenu(
       return menu
     }
   }
+}
+
+export function mapMenusToPermissions(userMenus: any[]) {
+  const permissions: string[] = []
+
+  const _recurseGetPermission = (menus: any[]) => {
+    for (const menu of menus) {
+      if (menu.type === 1 || menu.type === 2) {
+        _recurseGetPermission(menu.children ?? [])
+      } else if (menu.type === 3) {
+        permissions.push(menu.permission)
+      }
+    }
+  }
+  _recurseGetPermission(userMenus)
+
+  return permissions
 }
 
 export { firstMenu }

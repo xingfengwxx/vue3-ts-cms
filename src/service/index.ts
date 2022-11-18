@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 14:17:17
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-11 14:26:10
+ * @LastEditTime: 2022-11-18 14:37:11
  * @FilePath: \vue3-ts-cms\src\service\index.ts
  * @Description: service统一出口
  */
@@ -23,20 +23,20 @@ const hyRequest = new HYRequest({
         config.headers.Authorization = `Bearer ${token}`
       }
 
-      console.log('请求成功的拦截')
+      // console.log('请求成功的拦截')
       return config
     },
     requestInterceptorCatch: (err) => {
-      console.log('请求失败的拦截')
-      return err
+      // console.log('请求失败的拦截')
+      return Promise.reject(err)
     },
     responseInterceptor: (res) => {
-      console.log('响应成功的拦截')
+      // console.log('响应成功的拦截')
       return res
     },
     responseInterceptorCatch: (err) => {
-      console.log('响应失败的拦截')
-      return err
+      // console.log('响应失败的拦截')
+      return Promise.reject(err)
     }
   }
 })

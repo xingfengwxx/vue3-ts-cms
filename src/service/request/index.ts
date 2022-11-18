@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 14:17:45
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-11 14:24:14
+ * @LastEditTime: 2022-11-18 14:39:29
  * @FilePath: \vue3-ts-cms\src\service\request\index.ts
  * @Description:
  */
@@ -44,7 +44,7 @@ class HYRequest {
     // 2.添加所有的实例都有的拦截器
     this.instance.interceptors.request.use(
       (config) => {
-        console.log('所有实例都有的拦截器：请求成功拦截')
+        // console.log('所有实例都有的拦截器：请求成功拦截')
         if (this.showLoading) {
           this.loading = ElLoading.service({
             lock: true,
@@ -55,14 +55,14 @@ class HYRequest {
         return config
       },
       (err) => {
-        console.log('所有的实例都有的拦截器：请求失败拦截')
+        // console.log('所有的实例都有的拦截器：请求失败拦截')
         return err
       }
     )
 
     this.instance.interceptors.response.use(
       (res) => {
-        console.log('所有实例都有的拦截器：响应成功拦截')
+        // console.log('所有实例都有的拦截器：响应成功拦截')
 
         // 将loading移除
         this.loading?.close()
@@ -75,7 +75,7 @@ class HYRequest {
         }
       },
       (err) => {
-        console.log('所有的实例都有的拦截器：响应失败拦截')
+        // console.log('所有的实例都有的拦截器：响应失败拦截')
         // 将loading移除
         this.loading?.close()
 

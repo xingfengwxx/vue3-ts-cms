@@ -1,3 +1,12 @@
+/*
+ * @Author: 王星星
+ * @Email: 1099420259@qq.com
+ * @Date: 2022-11-17 10:23:56
+ * @LastEditors: 王星星
+ * @LastEditTime: 2022-11-18 15:27:10
+ * @FilePath: \vue3-ts-cms\src\utils\date-format.ts
+ * @Description:
+ */
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc'
 
@@ -10,11 +19,4 @@ export function formatUtcString(
   format: string = DATE_TIME_FORMAT
 ) {
   return dayjs.utc(utcString).format(format)
-}
-
-export function formatTimestamp(
-  timestamp: number,
-  format: string = DATE_TIME_FORMAT
-) {
-  return ''
 }
