@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 10:37:51
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-17 10:40:40
+ * @LastEditTime: 2022-11-18 15:31:31
  * @FilePath: \vue3-ts-cms\src\router\index.ts
  * @Description:
  */
@@ -41,8 +41,8 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
-  routes
+  routes,
+  history: createWebHashHistory()
 })
 
 // 导航守卫
