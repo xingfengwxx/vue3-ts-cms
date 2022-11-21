@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-15 11:02:50
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-18 13:46:28
+ * @LastEditTime: 2022-11-21 16:23:13
  * @FilePath: \vue3-ts-cms\src\utils\map-menus.ts
  * @Description:
  */
@@ -87,6 +87,23 @@ export function mapMenusToPermissions(userMenus: any[]) {
   _recurseGetPermission(userMenus)
 
   return permissions
+}
+
+export function menuMapLeafKeys(menuList: any[]) {
+  const leftKeys: number[] = []
+
+  const _recurseGetLeaf = (menuList: any[]) => {
+    for (const menu of menuList) {
+      if (menu.children) {
+        _recurseGetLeaf(menu.children)
+      } else {
+        leftKeys.push(menu.id)
+      }
+    }
+  }
+  _recurseGetLeaf(menuList)
+
+  return leftKeys
 }
 
 export { firstMenu }

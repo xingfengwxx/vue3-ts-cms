@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 11:31:14
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 14:08:27
+ * @LastEditTime: 2022-11-21 17:18:39
  * @FilePath: \vue3-ts-cms\src\store\index.ts
  * @Description:
  */
@@ -21,7 +21,8 @@ const store = createStore<IRootState>({
       name: 'wxx',
       age: 18,
       entireDepartment: [],
-      entireRole: []
+      entireRole: [],
+      entireMenu: []
     }
   },
   mutations: {
@@ -30,6 +31,9 @@ const store = createStore<IRootState>({
     },
     changeEntireRole(state, list) {
       state.entireRole = list
+    },
+    changeEntireMenu(state, list) {
+      state.entireMenu = list
     }
   },
   getters: {},
@@ -46,10 +50,13 @@ const store = createStore<IRootState>({
         size: 1000
       })
       const { list: roleList } = roleResult.data
+      const menuResult = await getPageListData('/menu/list', {})
+      const { list: menuList } = menuResult.data
 
       // 2.保存数据
       commit('changeEntireDepartment', departmentList)
       commit('changeEntireRole', roleList)
+      commit('changeEntireMenu', menuList)
     }
   },
   modules: {
@@ -60,7 +67,6 @@ const store = createStore<IRootState>({
 
 export function setupStore() {
   store.dispatch('login/loadLocalLogin')
-  store.dispatch('getInitialDataAction')
 }
 
 export function useStore(): Store<IStoreType> {

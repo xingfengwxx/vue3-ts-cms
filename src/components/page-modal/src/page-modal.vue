@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-21 10:53:48
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 11:15:47
+ * @LastEditTime: 2022-11-21 17:10:36
  * @FilePath: \vue3-ts-cms\src\components\page-modal\src\page-modal.vue
  * @Description:
 -->
@@ -17,6 +17,7 @@
       destroy-on-close
     >
       <hy-form v-bind="modalConfig" v-model="formData"></hy-form>
+      <slot></slot>
       <template #footer>
         <span class="dialog-footer">
           <el-button @click="dialogVisible = false">取 消</el-button>

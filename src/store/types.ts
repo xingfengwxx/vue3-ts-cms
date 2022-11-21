@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-10 11:07:14
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 12:01:09
+ * @LastEditTime: 2022-11-21 16:35:20
  * @FilePath: \vue3-ts-cms\src\store\types.ts
  * @Description:
  */
@@ -15,6 +15,7 @@ export interface IRootState {
   age: number
   entireDepartment: any[]
   entireRole: any[]
+  entireMenu: any[]
 }
 
 export interface IRootWithModule {
