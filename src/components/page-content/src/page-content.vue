@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-17 10:27:32
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-18 14:06:18
+ * @LastEditTime: 2022-11-21 14:16:40
  * @FilePath: \vue3-ts-cms\src\components\page-content\src\page-content.vue
  * @Description:
 -->
@@ -17,7 +17,14 @@
     >
       <!-- 1.header中的插槽 -->
       <template #headerHandler>
-        <el-button type="primary" size="default">新建用户</el-button>
+        <el-button
+          v-if="isCreate"
+          type="primary"
+          size="default"
+          @click="handleNewClick"
+        >
+          新建用户
+        </el-button>
       </template>
 
       <!-- 2.列中的插槽 -->
@@ -36,10 +43,24 @@
       <template #updateAt="scope">
         <span>{{ $filters.formatTime(scope.row.updateAt) }}</span>
       </template>
-      <template #handler>
+      <template #handler="scope">
         <div class="handle-btns">
-          <el-button :icon="Edit" size="small" type="primary">编辑</el-button>
-          <el-button :icon="Delete" size="small" type="primary">删除</el-button>
+          <el-button
+            v-if="isUpdate"
+            :icon="Edit"
+            size="small"
+            type="primary"
+            @click="handleEditClick(scope.row)"
+            >编辑</el-button
+          >
+          <el-button
+            v-if="isDelete"
+            :icon="Delete"
+            size="small"
+            type="primary"
+            @click="handleDeleteClick(scope.row)"
+            >删除</el-button
+          >
         </div>
       </template>
 
@@ -80,7 +101,8 @@ export default defineComponent({
       required: true
     }
   },
-  setup(props) {
+  emits: ['newBtnClick', 'editBtnClick'],
+  setup(props, { emit }) {
     const store = useStore()
 
     // 0.获取操作的权限
@@ -126,6 +148,22 @@ export default defineComponent({
       }
     )
 
+    // 5.删除/编辑/新建操作
+    const handleDeleteClick = (item: any) => {
+      console.log('delete: ' + item)
+      store.dispatch('system/deletePageDataAction', {
+        pageName: props.pageName,
+        id: item.id
+      })
+    }
+
+    const handleNewClick = () => {
+      emit('newBtnClick')
+    }
+    const handleEditClick = (item: any) => {
+      emit('editBtnClick', item)
+    }
+
     return {
       dataList,
       getPageData,
@@ -136,7 +174,10 @@ export default defineComponent({
       isUpdate,
       isDelete,
       Edit,
-      Delete
+      Delete,
+      handleDeleteClick,
+      handleNewClick,
+      handleEditClick
     }
   }
 })
