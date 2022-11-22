@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-21 11:22:34
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 17:00:13
+ * @LastEditTime: 2022-11-22 16:35:52
  * @FilePath: \vue3-ts-cms\src\hooks\use-page-modal.ts
  * @Description:
  */
@@ -27,7 +27,7 @@ export function usePageModal(newCb?: CallbackFn, editCb?: CallbackFn) {
     if (pageModalRef.value) {
       pageModalRef.value.dialogVisible = true
     }
-    editCb && editCb()
+    editCb && editCb(item)
   }
   return [pageModalRef, defaultInfo, handleNewData, handleEditData]
 }

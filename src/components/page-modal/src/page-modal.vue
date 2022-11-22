@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-21 10:53:48
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 17:10:36
+ * @LastEditTime: 2022-11-22 16:25:51
  * @FilePath: \vue3-ts-cms\src\components\page-modal\src\page-modal.vue
  * @Description:
 -->
@@ -49,6 +49,10 @@ export default defineComponent({
       type: Object,
       default: () => ({})
     },
+    otherInfo: {
+      type: Object,
+      default: () => ({})
+    },
     pageName: {
       type: String,
       require: true
@@ -76,7 +80,7 @@ export default defineComponent({
         console.log('编辑用户')
         store.dispatch('system/editPageDataAction', {
           pageName: props.pageName,
-          editData: { ...formData.value },
+          editData: { ...formData.value, ...props.otherInfo },
           id: props.defaultInfo.id
         })
       } else {
@@ -84,7 +88,7 @@ export default defineComponent({
         console.log('新建用户')
         store.dispatch('system/createPageDataAction', {
           pageName: props.pageName,
-          newData: { ...formData.value }
+          newData: { ...formData.value, ...props.otherInfo }
         })
       }
     }

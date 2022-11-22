@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-11-16 09:33:35
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 17:00:18
+ * @LastEditTime: 2022-11-22 16:26:19
  * @FilePath: \vue3-ts-cms\src\views\main\system\role\role.vue
  * @Description:
 -->
@@ -100,4 +100,8 @@ export default defineComponent({
 })
 </script>
 
-<style scoped></style>
+<style scoped lang="less">
+.menu-tree {
+  margin-left: 25px;
+}
+</style>
