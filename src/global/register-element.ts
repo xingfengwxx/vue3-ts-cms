@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 11:49:33
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 17:07:14
+ * @LastEditTime: 2022-11-22 10:18:30
  * @FilePath: \vue3-ts-cms\src\global\register-element.ts
  * @Description:
  */
@@ -45,7 +45,8 @@ import {
   ElIcon,
   ElImage,
   ElDialog,
-  ElTree
+  ElTree,
+  ElCard
 } from 'element-plus'
 
 const components = [
@@ -84,7 +85,8 @@ const components = [
   ElIcon,
   ElImage,
   ElDialog,
-  ElTree
+  ElTree,
+  ElCard
 ]
 
 export default function (app: App): void {

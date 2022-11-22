@@ -3,7 +3,7 @@
  * @Email: 1099420259@qq.com
  * @Date: 2022-10-25 11:31:14
  * @LastEditors: 王星星
- * @LastEditTime: 2022-11-21 17:18:39
+ * @LastEditTime: 2022-11-22 14:03:13
  * @FilePath: \vue3-ts-cms\src\store\index.ts
  * @Description:
  */
@@ -12,6 +12,7 @@ import { createStore, Store, useStore as useVuexStore } from 'vuex'
 
 import login from './login/login'
 import system from './main/system/system'
+import dashboard from './main/analysis/dashboard'
 
 import { IRootState, IStoreType } from './types'
 
@@ -61,7 +62,8 @@ const store = createStore<IRootState>({
   },
   modules: {
     login,
-    system
+    system,
+    dashboard
   }
 })
 
